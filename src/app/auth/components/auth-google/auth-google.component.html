@@ -1,0 +1,9 @@
+<div class="text-center mar-t-50">
+    <button class="btn google-login-btn" (click)="loginWithGoogle()">
+        <i class="fa fa-google"></i>
+        <span>Login with Google</span>
+    </button>
+</div>
+<div class="mar-t-40" *ngIf="messages">
+    <app-alert [success]="false" [messages]="messages"></app-alert>
+</div>

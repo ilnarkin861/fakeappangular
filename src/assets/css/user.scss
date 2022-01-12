@@ -1,0 +1,220 @@
+.users-section{
+
+    .users-list{
+        min-height: 100px;
+
+        .background{
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+
+            img{
+                height: 150px;
+            }
+        }
+
+        .avatar{
+            width: 128px;
+            height: 128px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid $secondary-color;
+            margin-top: -64px;
+            color: $color-white;
+            font-size: 32px;
+
+            img{
+                height: 128px;
+            }
+
+            .overlay{
+                opacity: 0;
+                -webkit-transition: opacity ease-in-out 0.3s;
+                -o-transition: opacity ease-in-out 0.3s;
+                transition: opacity ease-in-out 0.3s;
+            }
+
+            &:hover > .overlay{
+                opacity: 1;
+            }
+        }
+
+        .username{
+            display: inline-block;
+            color: $primary-text-color;
+            text-decoration: none;
+            -webkit-transition: color ease-in-out 0.3s;
+            -o-transition: color ease-in-out 0.3s;
+            transition: color ease-in-out 0.3s;
+
+            &:hover{
+                color: $grey-text-color;
+            }
+        }
+
+        .user-contacts{
+            li{
+                display: inline-block;
+                font-size: 20px;
+
+                a{
+                    color: $secondary-color-darker;
+                    opacity: 0.7;
+                    -webkit-transition: opacity ease-in-out 0.3s;
+                    -o-transition: opacity ease-in-out 0.3s;
+                    transition: opacity ease-in-out 0.3s;
+
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+
+                &:not(:last-child){
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .action-button{
+        color: $secondary-color;
+
+        &:hover{
+            color: $color-white;
+        }
+    }
+}
+
+.single-user-section{
+
+    .background{
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+
+        img{
+          height: 150px;
+        }
+    }
+
+    .user-avatar{
+        width: 128px;
+        height: 128px;
+        overflow: hidden;
+        border: 2px solid $secondary-color;
+        margin-top: -64px;
+        position: relative;
+        background-color: $color-white;
+
+
+        img{
+            height: 128px;
+        }
+    }
+
+    .content-block {
+
+        @media (max-width: 991px) {
+            margin-top: 50px;
+        }
+
+        .general-info{
+
+            .row:not(:last-child){
+                border-bottom: 1px solid $primary-border-color;
+            }
+
+            .label{
+                font-size: 14px;
+                font-weight: 600;
+                color: $primary-text-color;
+                opacity: 0.6;
+            }
+
+            .info{
+                 font-size: 15px;
+                 color: $secondary-text-color;
+            }
+        }
+    }
+
+    .user-posts-list{
+        min-height: 200px;
+
+        .post-image{
+            display: block;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            color: $color-white;
+            text-decoration: none;
+
+            img{
+                height: 200px;
+            }
+
+            span{
+                font-size: 13px;
+            }
+        }
+
+        .post-title{
+            color: $primary-text-color;
+            font-weight: 600;
+            font-size: 18px;
+            -webkit-transition: color ease-in-out 0.3s;
+            -o-transition: color ease-in-out 0.3s;
+            transition: color ease-in-out 0.3s;
+            line-height: 1;
+            text-decoration: none;
+
+            &:hover{
+                color: $grey-text-color;
+            }
+        }
+    }
+
+    .user-albums-list{
+        min-height: 250px;
+
+        .photo{
+            display: block;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            color: $primary-text-color;
+            font-size: 13px;
+
+            img{
+                height: 200px;
+                object-fit: cover;
+            }
+
+            &:hover > .overlay{
+                bottom:0
+            }
+        }
+
+        .overlay{
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            bottom: -100%;
+            -webkit-transition: all ease-in-out 0.4s;
+            -o-transition: all ease-in-out 0.4s;
+            transition: all ease-in-out 0.4s;
+
+            .album-title{
+                font-weight: 600;
+            }
+
+            i{
+                margin-right: 5px;
+            }
+
+            @media (max-width: 767px) {
+                bottom: 0;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}

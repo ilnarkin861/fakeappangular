@@ -1,0 +1,59 @@
+.account-section{
+
+    .user-posts-list{
+        min-height: 150px;
+
+        .list-group-item{
+            border: 1px solid $primary-border-color;
+        }
+
+        .post-image{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+
+            img{
+                height: 200px;
+            }
+
+            @media (max-width: 767px) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .post-title{
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: $primary-text-color;
+            -webkit-transition: opacity ease-in-out 0.3s;
+            -o-transition: opacity ease-in-out 0.3s;
+            transition: opacity ease-in-out 0.3s;
+            opacity: 0.7;
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+
+        .post-text{
+            font-size: 15px;
+            opacity: 0.7;
+        }
+
+        .post-details ul li,
+        .action-buttons ul li{
+            display: inline-block;
+            font-size: 0;
+        }
+
+        .post-details ul li{
+            font-size: 13px;
+            color: $grey-text-color;
+
+            &:not(:last-child){
+                margin-right: 10px;
+            }
+        }
+    }
+}

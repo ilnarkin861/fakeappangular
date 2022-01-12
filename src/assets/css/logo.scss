@@ -1,0 +1,29 @@
+header,
+footer{
+    .logo{
+        height: 40px;
+        text-decoration: none;
+
+        .icon,
+        .brand-text{
+            vertical-align: middle;
+        }
+
+        .icon{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+
+        .brand-text{
+            font-weight: 700;
+            font-size: 30px;
+        }
+    }
+}
+
+header .logo .icon{  background: url("../img/logo.svg") no-repeat; }
+footer .logo .icon{  background: url("../img/logo-white.svg") no-repeat; }
+header .logo .brand-text{  color: $primary-color-darker; }
+footer .logo .brand-text{  color: $color-white; }

@@ -1,0 +1,38 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink=""><i class="fa fa-home"></i></a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/account">Account</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/account/albums">Albums</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Add album</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="account-section mar-t-150">
+    <div class="container">
+        <div class="row shadow pad-b-100 pad-l-20 pad-r-20">
+            <div class="col-md-3 pad-t-30">
+                <app-account-menu></app-account-menu>
+            </div>
+            <div class="col-md-9 pad-t-30">
+                <h5 class="heading-line text-center mar-r-40 mar-l-40">
+                    <span>Add album</span>
+                </h5>
+                <div class="mar-t-100">
+                    <app-album-form></app-album-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

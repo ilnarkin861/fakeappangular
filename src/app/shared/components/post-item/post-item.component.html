@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-4 col-md-6 mar-t-30 pad-r-10 pad-l-10" *ngFor="let post of posts;">
+        <div class="shadow bg-white rounded">
+            <a [routerLink]="['/posts', post.id]" class="post-image loading-spinner h-sm-auto">
+                <img src="{{ post.image ? post.image : 'assets/img/no-img.jpg' }}" alt="" class="w-100 img-cover h-sm-auto">
+            </a>
+            <div class="post-details pad-t-30 pad-b-30 pad-l-30 pad-r-30">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fa fa-calendar"></i>
+                        <span> {{ post.createdDate | date: 'MMM d, y' }}</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-comments"></i>
+                        <span> {{ post.commentsCount }}</span>
+                    </div>
+                </div>
+                <div class="post-title pad-t-40 pad-b-40">
+                    <a [routerLink]="['/posts', post.id]">
+                        <h5>{{ post.title }}</h5>
+                    </a>
+                </div>
+                <div class="post-user d-flex align-items-center pad-t-20">
+                    <div class="avatar circle">
+                        <img src="{{ post.userAvatar ? post.userAvatar : 'assets/img/noavatar.jpg' }}"
+                             alt="" class="w-100 img-cover">
+                    </div>
+                    <span class="username">{{ post.userName }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

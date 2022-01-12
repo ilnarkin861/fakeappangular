@@ -1,0 +1,135 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink=""><i class="fa fa-home"></i></a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Register</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="register-section mar-t-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="bg-grey pad-l-30 shadow rounded pad-r-30 pad-t-30 pad-b-50">
+                    <div class="title text-center">
+                        <h1><strong>Register</strong> account</h1>
+                        <span>Sed ut perspiciatis unde omnis iste natus.</span>
+                    </div>
+                    <form class="mar-t-50" [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="form-group">
+                            <label for="firstNameInput">First Name *:</label>
+                            <input type="text"
+                                   id="firstNameInput"
+                                   class="form-control"
+                                   formControlName="firstName"
+                                   [class.error]="registerForm.get('firstName')?.touched
+                                   && registerForm.get('firstName')?.invalid"
+                                   placeholder="Enter your first name">
+                            <div class="error-text text-left"
+                            *ngIf="registerForm.get('firstName')?.touched
+                                   && registerForm.get('firstName')?.invalid">
+                                First name is required
+                            </div>
+                        </div>
+                        <div class="form-group mar-t-20">
+                            <label for="lastNameInput">Last Name:</label>
+                            <input type="text"
+                                   id="lastNameInput"
+                                   class="form-control"
+                                   formControlName="lastName"
+                                   placeholder="Enter your last name">
+                        </div>
+                        <div class="form-group mar-t-20">
+                            <label for="emailInput">Email *:</label>
+                            <input type="text"
+                                   id="emailInput"
+                                   class="form-control"
+                                   formControlName="email"
+                                   [class.error]="registerForm.get('email')?.touched
+                                   && registerForm.get('email')?.invalid"
+                                   placeholder="Enter your email">
+                            <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+                                <div class="error-text text-left"
+                                     *ngIf="registerForm.get('email')?.hasError('required')">
+                                    Email is required
+                                </div>
+                                <div class="error-text text-left"
+                                     *ngIf="registerForm.get('email')?.hasError('pattern')">
+                                    Incorrect email
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mar-t-20">
+                            <label for="passwordInput">Password *:</label>
+                            <input type="password"
+                                   id="passwordInput"
+                                   formControlName="password"
+                                   [class.error]="registerForm.get('password')?.touched
+                                   && registerForm.get('password')?.invalid"
+                                   class="form-control"
+                                   placeholder="Enter your password">
+                            <div *ngIf="registerForm.get('password')?.touched
+                                   && registerForm.get('password')?.invalid">
+                                <div class="error-text text-left"
+                                     *ngIf="registerForm.get('password')?.hasError('required')">
+                                    Password is required
+                                </div>
+
+                                <div class="error-text text-left"
+                                     *ngIf="registerForm.get('password')?.hasError('minlength')">
+                                    New password length must not be less than 8 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mar-t-20 mar-b-40">
+                            <label for="passwordConfirmInput">Confirm password *:</label>
+                            <input type="password"
+                                   id="passwordConfirmInput"
+                                   class="form-control"
+                                   formControlName="passwordConfirm"
+                                   [class.error]="registerForm.get('passwordConfirm')?.touched
+                                   && registerForm.get('passwordConfirm')?.invalid
+                                   || registerForm?.hasError('passwordMatch')"
+                                   placeholder="Enter your password again">
+                            <div *ngIf="registerForm.get('passwordConfirm')?.touched
+                                   && registerForm.get('passwordConfirm')?.invalid">
+                                <div class="error-text text-left"
+                                     *ngIf="registerForm.get('passwordConfirm')?.hasError('required')">
+                                    Please, confirm your password
+                                </div>
+                            </div>
+                            <div class="error-text text-left"
+                                       *ngIf="registerForm?.hasError('passwordMatch')">
+                                Passwords does not match
+                            </div>
+                        </div>
+                        <app-alert [messages]="messages" [success]="false" *ngIf="messages"></app-alert>
+                        <div class="timer-block text-center" *ngIf="!timerDone">
+                            <h5 class="title">Account created successfully!</h5>
+                            <p class="text">You will be redirected to the login page in <strong>{{ seconds }}</strong> seconds</p>
+                        </div>
+                        <div class="text-center pad-t-40">
+                            <button class="btn action-button upper rounded border-blue bg-blue
+                            pad-t-10 pad-b-10 pad-l-30 pad-r-30" [disabled]="buttonClicked">
+                                {{ buttonClicked ? "Wait..." : "Register" }}
+                            </button>
+                            <div class="mar-t-30 text">
+                                <span>Have an account? </span>
+                                <a routerLink="/auth/login">Login</a>
+                            </div>
+                        </div>
+                    </form>
+                    <h6 class="heading-line text-center mar-b-40 mar-t-80">
+                        <span>or</span>
+                    </h6>
+                    <app-auth-google></app-auth-google>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

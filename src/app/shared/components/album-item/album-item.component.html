@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 mar-t-10 pad-l-5 pad-r-5" *ngFor="let album of albums">
+        <div class="album-item loading-spinner">
+            <img src="{{ album.cover ? album.cover : 'assets/img/no-img.jpg' }}" alt="" class="w-100 img-cover">
+            <a [routerLink]="['/albums', album.id]" class="overlay">
+                <span>{{ album.title }}</span>
+            </a>
+            <div class="album-details d-flex justify-content-between
+                        align-items-center bg-white pad-l-10 pad-r-10">
+                <div>
+                    <i class="fa fa-user"></i>
+                    <span> {{ album.userName }}</span>
+                </div>
+                <div>
+                    <i class="fa fa-picture-o"></i>
+                    <span> {{ album.photosCount}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

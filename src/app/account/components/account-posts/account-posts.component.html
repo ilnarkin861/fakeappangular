@@ -1,0 +1,99 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink=""><i class="fa fa-home"></i></a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/account">Account</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Posts</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="account-section mar-t-150">
+    <div class="container">
+        <div class="row shadow pad-b-100 pad-r-20 pad-l-20">
+            <div class="col-md-3 pad-t-30">
+                <app-account-menu></app-account-menu>
+            </div>
+            <div class="col-md-9 pad-t-30">
+                <h5 class="heading-line text-center mar-r-40 mar-l-40">
+                    <span>My posts</span>
+                </h5>
+                <div class="text-right mar-r-40 mar-l-40 mar-t-40">
+                    <a routerLink="/account/posts/add">
+                        <button class="btn action-button border-orange bg-orange">
+                            Add post
+                        </button>
+                    </a>
+                </div>
+                <div class="user-posts-list loading mar-t-40 relative">
+                    <div class="no-items bg-white d-flex align-items-center" *ngIf="posts && posts.length == 0">
+                        <h6 class="text">No posts</h6>
+                    </div>
+                    <div class="list-group bg-white" *ngIf="posts && posts.length > 0">
+                        <div class="list-group-item mar-t-30 rounded" *ngFor="let post of posts; let i = index">
+                            <div class="d-md-flex">
+                                <div>
+                                    <div class="post-image loading-spinner pad-r-20">
+                                        <img src="{{ post.image ? post.image : 'assets/img/no-img.jpg' }}"
+                                             alt="" class="w-100 img-cover">
+                                    </div>
+                                </div>
+                                <div>
+                                    <a [routerLink]="['/account/posts/edit', post.id]" class="post-title">
+                                        {{ post.title }}
+                                    </a>
+                                    <div class="post-text mar-t-10">
+                                        {{ post.body | slice:0:100 }}...
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-sm-flex justify-content-between align-items-center mar-t-40">
+                                <div class="post-details mar-t-20">
+                                    <ul>
+                                        <li>
+                                            <i class="fa fa-calendar"></i>
+                                            <span> {{ post.createdDate | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-comments"></i>
+                                            <span> {{ post.commentsCount }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="action-buttons mar-t-20">
+                                    <ul>
+                                        <li>
+                                            <a [routerLink]="['/account/posts/edit', post.id]">
+                                                <button class="small-action-button default">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <button class="small-action-button danger fa fa-trash"
+                                                    (click)="deletePost($event, post.id, i)">
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mar-t-70" *ngIf="hasNextPage">
+                        <button class="btn action-button rounded border-blue bg-blue"
+                                [disabled]="buttonClicked" (click)="loadPosts()">
+                                {{ buttonClicked ? "Loading..." : "Load more" }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

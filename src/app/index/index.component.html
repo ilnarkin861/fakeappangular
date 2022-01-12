@@ -1,0 +1,179 @@
+<section class="main-banner-section">
+    <div class="banner-wrapper pad-t-50 pad-b-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <div class="banner-title mar-b-40">
+                        Sed ut perspiciatis unde omnis
+                    </div>
+                    <div class="banner-text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                        praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
+                        sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                        mollitia animi, id est laborum et dolorum fuga.
+                    </div>
+                    <ul class="mar-t-80">
+                        <li>
+                            <a routerLink="/posts">
+                                <button class="btn action-button upper rounded border-orange bg-orange
+                                    pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                                    Read posts
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="albums">
+                                <button class="btn action-button upper rounded border-orange
+                                    pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                                    Show albums
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="about-section mar-t-150">
+    <div class="section-title">
+        <h2>Lorem ipsum</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 about-text text-center">
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                    architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="facts-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="fact-icon mar-t-60 mar-auto">
+                    <img src="assets/img/posts-icon.svg" alt="Posts" class="w-100">
+                </div>
+                <div class="fact-content text-center">
+                    <div class="fact-content-data loading">
+                        <div class="bg-white">{{ postsCount }}</div>
+                    </div>
+                    <div class="fact-content-title">
+                        <span>posts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="fact-icon mar-t-60 mar-auto">
+                    <img src="assets/img/photos-icon.svg" alt="Photos" class="w-100">
+                </div>
+                <div class="fact-content text-center">
+                    <div class="fact-content-data loading">
+                        <div class="bg-white">{{ albumsCount }}</div>
+                    </div>
+                    <div class="fact-content-title">
+                        <span>albums</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="fact-icon mar-t-60 mar-auto">
+                    <img src="assets/img/users-icon.svg" alt="Users" class="w-100">
+                </div>
+                <div class="fact-content text-center">
+                    <div class="fact-content-data loading">
+                        <div class="bg-white">{{ usersCount }}</div>
+                    </div>
+                    <div class="fact-content-title">
+                        <span>users</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="posts-section pad-t-40 pad-b-80 mar-t-150 bg-grey">
+    <div class="section-title">
+        <h2>Posts</h2>
+    </div>
+    <div class="container">
+        <div class="posts-list loading bg-grey relative">
+            <div class="no-items bg-grey d-flex align-items-center" *ngIf="posts && posts.length == 0">
+                <h6 class="text">No posts</h6>
+            </div>
+            <div class="bg-grey" *ngIf="posts && posts.length > 0">
+                <app-post-item [posts]="posts"></app-post-item>
+            </div>
+        </div>
+        <div class="text-center mar-t-70" *ngIf="posts && posts.length > 0">
+            <a routerLink="/posts">
+                <button class="btn action-button upper rounded border-blue bg-blue
+                    pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                    All posts
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="albums-section mar-t-150">
+    <div class="section-title">
+        <h2>Albums</h2>
+    </div>
+    <div class="container">
+        <div class="albums-list bg-white loading relative">
+            <div class="no-items loading bg-white d-flex align-items-center" *ngIf="albums && albums.length == 0">
+                <h6 class="text">No albums</h6>
+            </div>
+            <div class="bg-white" *ngIf="albums && albums.length > 0">
+                <app-album-item [albums]="albums"></app-album-item>
+            </div>
+        </div>
+        <div class="text-center mar-t-70" *ngIf="albums && albums.length > 0">
+            <a routerLink="/albums">
+                <button class="btn action-button upper rounded border-blue
+                    pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                    All albums
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="users-section mar-t-150 mar-b-150">
+    <div class="section-title">
+        <h2>Users</h2>
+    </div>
+    <div class="container">
+        <div class="users-list bg-white loading relative">
+            <div class="no-items bg-white d-flex align-items-center" *ngIf="users && users.length == 0">
+                <h6 class="text">No users</h6>
+            </div>
+            <div class="bg-white" *ngIf="users && users.length > 0">
+                <app-user-item [users]="users"></app-user-item>
+            </div>
+        </div>
+        <div class="text-center mar-t-70" *ngIf="users && users.length > 0">
+            <a routerLink="/users">
+                <button class="btn action-button upper rounded border-orange
+                    pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                    All users
+                </button>
+            </a>
+        </div>
+    </div>
+</section>

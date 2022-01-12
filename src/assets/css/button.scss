@@ -1,0 +1,98 @@
+button{
+    cursor: pointer;
+}
+
+button,
+button:focus,
+a button,
+a button:focus{
+    outline: none;
+    box-shadow: none!important;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+button.action-button{
+    min-width: 165px;
+    color: $color-white;
+    background: none;
+    -webkit-transition: all ease-in-out 0.3s;
+    -o-transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
+    font-size: 13px;
+}
+
+button.border-blue{
+    border: 3px solid $primary-color !important;
+}
+
+button.border-orange{
+    border: 3px solid $secondary-color !important;
+}
+
+button.bg-blue{
+    background-color: $primary-color;
+}
+
+button.border-blue:hover,
+button.bg-blue:hover{
+    background-color: $primary-color-darker;
+    border: 3px solid $primary-color-darker !important;
+}
+
+button.bg-orange{
+    background-color: $secondary-color;
+}
+
+button.border-orange:hover,
+button.bg-orange:hover{
+    background-color: $secondary-color-darker;
+    border: 3px solid $secondary-color-darker !important;
+}
+
+button.upper{
+    text-transform: uppercase;
+}
+
+button.small-action-button{
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    font-size: 18px;
+
+    &:disabled:before{
+        opacity: 0!important;
+    }
+
+    &:disabled{
+        background: url("../img/preloader-spinner.svg") no-repeat center center!important;
+    }
+}
+
+button.small-action-button.success{
+    color: $color-success;
+
+    &:hover{
+        color: $color-success-darker;
+    }
+}
+
+button.small-action-button.default{
+    color: $primary-color;
+
+    &:hover{
+        color: $primary-color-darker;
+    }
+}
+
+
+button.small-action-button.danger{
+    color: $color-danger;
+
+    &:hover{
+        color: $color-danger-darker;
+    }
+}

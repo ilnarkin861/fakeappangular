@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+
+    <app-root></app-root>
+
+    <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+            id="scroll-up" class="btn circle border-blue bg-blue hidden">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+
+    <script>
+        let scrollBtnFn = () => {
+
+            let scrollBtn = document.getElementById("scroll-up");
+
+            const scrollBtnShowPos = 600;
+
+            window.scrollY > scrollBtnShowPos
+              ? scrollBtn.classList.remove("hidden")
+              : scrollBtn.classList.add("hidden");
+        }
+
+        window.onscroll = scrollBtnFn;
+
+        window.onload = scrollBtnFn;
+    </script>
+
+</body>
+</html>

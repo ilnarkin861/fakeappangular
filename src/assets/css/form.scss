@@ -1,0 +1,71 @@
+::placeholder {
+    color: $grey-text-color;
+}
+
+form{
+    label{
+        color: $grey-text-color;
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+textarea{
+    resize: none;
+}
+
+textarea,
+input{
+    padding: 10px!important;
+    border: 1px solid $primary-border-color!important;
+}
+
+textarea.error,
+input.error{
+    border: 1px solid $color-danger!important;
+}
+
+textarea:focus,
+input:focus,
+select:focus{
+    box-shadow: none!important;
+    border: 1px solid $primary-color!important;
+}
+
+.file-upload{
+    input[type="file"]{
+        display: none;
+    }
+
+    .input-file + label{
+        padding: 5px 20px;
+        border: 2px solid $primary-color;
+        margin-bottom: 0;
+        cursor: pointer;
+        color: $primary-color;
+        -webkit-transition: all ease-in-out 0.3s;
+        -o-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+
+        svg, span{
+            vertical-align: middle;
+        }
+
+        svg{
+            fill: $primary-color;
+            margin-right: 5px;
+            -webkit-transition: all ease-in-out 0.3s;
+            -o-transition: all ease-in-out 0.3s;
+            transition: all ease-in-out 0.3s;
+        }
+
+        &:hover{
+            background-color: $primary-color;
+            color: $color-white;
+        }
+
+        &:hover svg{
+            fill: $color-white;
+        }
+    }
+}

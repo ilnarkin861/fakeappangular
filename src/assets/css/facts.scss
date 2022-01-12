@@ -1,0 +1,28 @@
+.facts-section{
+
+    .fact-icon{
+        width: 40px;
+        height: 40px;
+
+        img{
+            display: block;
+            height: auto;
+            opacity: 0.5;
+        }
+    }
+
+    .fact-content{
+        text-transform: uppercase;
+        font-size: 15px;
+        color: $primary-text-color;
+        font-weight: 300;
+        margin-top: 10px;
+
+        .fact-content-data{
+            min-height: 55px;
+            font-size: 40px;
+            font-weight: 700;
+            color: $primary-color;
+        }
+    }
+}

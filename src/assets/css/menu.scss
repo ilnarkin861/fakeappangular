@@ -1,0 +1,159 @@
+.top-menu,
+.bottom-menu{
+
+    li{
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 15px;
+        font-weight: 400;
+
+        a{
+            display: inline-block;
+            position: relative;
+
+            &:hover{
+                text-decoration: none;
+                -webkit-transition: color ease-in-out 0.3s, -webkit-transform 0.3s;
+                -moz-transition: color ease-in-out 0.3s, -moz-transform 0.3s;
+                transition: color ease-in-out 0.3s, transform 0.3s;
+            }
+        }
+
+        @media (max-width: 576px){
+            display: list-item;
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    li.login-link a,
+    li.user-link a{
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+    li.login-link,
+    li.user-link{
+
+        @media (max-width: 576px){
+            margin-left: 0;
+            margin-top: 50px;
+      }
+    }
+
+    li.login-link a{
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    li.user-link a{
+
+        background-color: $color-white;
+
+        img{
+            display: inline-block;
+            height: 50px;
+            vertical-align: middle;
+        }
+    }
+
+    li.user-link a{
+        width: 50px;
+        height: 50px;
+    }
+
+    @media (max-width: 576px){
+        display: list-item;
+        list-style: none;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 767px){
+        margin-top: 70px;
+    }
+}
+
+.top-menu{
+
+    li a{
+        color: $primary-text-color;
+    }
+
+    li.active a,
+    li a:hover{
+        color: $primary-color-darker;
+    }
+
+    li.user-link a{
+        border: 2px solid $primary-color-darker;
+    }
+
+    li.login-link a{
+        background-image: url("../img/login-icon.svg");
+    }
+
+    li.cl-effect a::after {
+        background-color: $primary-color-darker;
+    }
+}
+
+.bottom-menu{
+    li a{
+        color: $color-white;
+    }
+
+    li.active a,
+    li a:hover{
+        color: $grey-text-color;
+    }
+
+    li.active a{
+        color: $grey-text-color;
+    }
+
+    li.user-link a{
+        border: 2px solid $secondary-color-darker;
+    }
+
+    li.login-link a{
+        background-image: url("../img/login-icon-white.svg");
+    }
+
+    li.cl-effect a::after {
+        background-color: $grey-text-color;
+    }
+}
+
+.account-menu{
+
+    li{
+        margin-bottom: 10px;
+
+        a{
+            font-size: 18px;
+            color: $primary-text-color;
+        }
+
+        a.active{
+            font-weight: 600;
+        }
+
+        .logout-link{
+            font-size: 32px;
+            -webkit-transition: color ease-in-out 0.3s;
+            -o-transition: color ease-in-out 0.3s;
+            transition: color ease-in-out 0.3s;
+            color: $secondary-color;
+            border: none;
+            background: none;
+
+            &:hover{
+                color: $secondary-color-darker;
+            }
+        }
+    }
+}

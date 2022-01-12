@@ -1,0 +1,117 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20" *ngIf="postTitle">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink="">
+                    <i class="fa fa-home"></i>
+                </a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/posts">Posts</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li *ngIf="postTitle">{{ postTitle }}</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="single-post-section mar-t-150 p-0 loading">
+    <div class="bg-white text-center" *ngIf="postNotFound">
+        <img src="assets/img/post-not-found.svg" alt="">
+        <h3 class="mar-t-30"><strong>Post not found</strong></h3>
+        <a routerLink="/posts">
+            <button class="btn action-button rounded border-blue bg-blue
+            mar-t-70 pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                <i class="fa fa-long-arrow-left"></i> Posts list
+            </button>
+        </a>
+    </div>
+    <div class="container bg-white" *ngIf="post">
+        <div class="row shadow rounded bg-grey d-flex align-items-center">
+            <div class="col-md-6 post-details">
+                <div class="post-user d-flex align-items-center">
+                    <div class="avatar circle mar-r-10">
+                        <img src="{{ post.userAvatar ? post.userAvatar : 'assets/img/noavatar.jpg' }}" alt="">
+                    </div>
+                    <span class="username">{{ post.userName }}</span>
+                </div>
+                <h1 class="mar-t-40 post-title pad-r-20">{{ post.title }}</h1>
+            </div>
+            <div class="col-md-6 p-0">
+                <div class="post-image loading-spinner h-sm-auto">
+                    <div class="overlay"></div>
+                    <img src="{{ post.image ? post.image : 'assets/img/no-img.jpg' }}"
+                         alt="" class="w-100 img-cover h-sm-auto">
+                </div>
+            </div>
+        </div>
+        <div class="row mar-t-50">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="post-content">
+                    <div class="post-date">{{ post.createdDate | date: 'MMMM d, y' }}</div>
+                    <div class="post-text mar-t-20">{{ post.body }}</div>
+                </div>
+                <div class="comments-wrapper mar-t-150 pad-t-20">
+                    <h5 class="title mar-b-30">{{ post.commentsCount}} Comments</h5>
+                    <div class="text-center mar-t-50"
+                         *ngIf="hasCommentsNextPage">
+                        <button class="action-button rounded border-blue pad-t-10 pad-b-10
+                        pad-l-10 pad-r-10" [disabled]="loadButtonClicked" (click)="loadComments()">
+                            {{ loadButtonClicked ? "Loading" : "Load comments" }}
+                        </button>
+                    </div>
+                    <div class="comments-list" *ngIf="commentsList">
+                        <div class="comment-item d-md-flex pad-b-40 pad-t-40" *ngFor="let comment of commentsList">
+                            <div class="mar-r-20">
+                                <div class="user-avatar circle">
+                                    <img src="{{ comment.userAvatar ? comment.userAvatar : 'assets/img/noavatar.jpg' }}"
+                                         alt="" class="w-100 img-cover">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="username">
+                                    {{ comment.userFirstName }}
+                                    {{ comment.userLastName === undefined ? comment.userLastName : '' }}</div>
+                                <div class="comment-date mar-t-10">
+                                    {{ comment.commentDate | date: 'dd.MM.yyyy HH:mm:ss'}}</div>
+                                <div class="comment-text mar-t-20">{{ comment.body }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-form bg-grey mar-t-100 pad-t-20 pad-b-50 pad-l-20 pad-r-20"
+                         *ngIf="isAuthenticated">
+                        <form class="text-right" [formGroup]="commentsForm" (ngSubmit)="addComment()">
+                            <div class="form-group">
+                                <textarea class="form-control"
+                                          cols="6" rows="6"
+                                          formControlName="body"
+                                          placeholder="Type here comment text"
+                                          [class.error]="commentsForm.get('body')?.touched
+                                          && commentsForm.get('body')?.invalid">
+                                </textarea>
+                                <div class="error-text text-left"
+                                     *ngIf="commentsForm.get('body')?.touched
+                                     && commentsForm.get('body')?.invalid">
+                                    Comment body is required
+                                </div>
+                            </div>
+                            <button type="submit" class="action-button upper rounded border-blue bg-blue
+                                 pad-t-10 pad-b-10 pad-l-30 pad-r-30" [disabled]="commentsButtonClicked">
+                                {{ commentsButtonClicked ? "Adding..." : "Add comment" }}
+                            </button>
+                        </form>
+                    </div>
+                    <div class="mar-t-30">
+                        <app-alert [success]="false" [messages]="messages" *ngIf="messages"></app-alert>
+                    </div>
+                    <div class="mar-t-100 pad-t-20 pad-b-50 pad-l-20 pad-r-20 text-center"
+                         *ngIf="!isAuthenticated">
+                        <p><a routerLink="/auth/login" style="color: #0c59db">Login</a> to add comment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

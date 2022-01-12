@@ -1,0 +1,40 @@
+<form class="album-form pad-r-20 pad-l-20" [formGroup]="albumForm" (ngSubmit)="submitForm()">
+    <div class="d-lg-flex align-items-end">
+        <div class="album-cover mar-r-20 loading-spinner" *ngIf="album">
+            <img src="{{ uploadedCover ? uploadedCover : 'assets/img/no-img.jpg' }}" alt="" class="w-100 img-cover">
+        </div>
+        <div class="file-upload mar-t-20">
+            <input type="file"
+                   id="albumCoverInput"
+                   class="input-file"
+                   (change)="coverSelected($event)"
+                   formControlName="cover"/>
+            <label for="albumCoverInput" class="rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                </svg>
+                <span>{{ changedCover ? changedCover : "Choose a cover&hellip;" }}</span>
+            </label>
+            <div class="error-text text-left mar-t-10" *ngIf="coverError">{{ coverError }}</div>
+        </div>
+    </div>
+    <div class="form-group mar-t-70 mar-b-60">
+        <label for="inputAlbumName">Title *:</label>
+        <input type="text"
+               class="form-control"
+               id="inputAlbumName"
+               [class.error]="albumForm.get('title')?.touched
+               && albumForm.get('title')?.invalid"
+               formControlName="title">
+        <div class="error-text text-left"
+             *ngIf="albumForm.get('title')?.touched && albumForm.get('title')?.hasError('required')">
+            Title is required
+        </div>
+    </div>
+    <app-alert [messages]="messages" [success]="success" *ngIf="messages"></app-alert>
+    <div class="text-right mar-t-60">
+        <button class="btn action-button rounded border-blue bg-blue" [disabled]="buttonClicked">
+            {{ buttonClicked ? "Saving..." : "Save album" }}
+        </button>
+    </div>
+</form>

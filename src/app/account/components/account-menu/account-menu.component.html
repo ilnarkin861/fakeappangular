@@ -1,0 +1,19 @@
+<ul class="account-menu">
+    <li>
+        <a routerLink="/account" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Account</a>
+    </li>
+    <li>
+        <a routerLink="/account/posts" routerLinkActive="active">Posts</a>
+    </li>
+    <li>
+        <a routerLink="/account/albums" routerLinkActive="active">Albums</a>
+    </li>
+    <li>
+        <a routerLink="/account/todos" routerLinkActive="active">Todos</a>
+    </li>
+    <li class="mar-t-50">
+        <button class="logout-link" title="Logout" (click)="logout()">
+            <i class="fa fa-sign-out"></i>
+        </button>
+    </li>
+</ul>

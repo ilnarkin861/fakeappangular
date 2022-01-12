@@ -1,0 +1,41 @@
+.account-section{
+
+    .account-form{
+        min-height: 300px;
+    }
+
+
+    .heading-line{
+        color: $primary-color;
+    }
+
+    .heading-line > ::after,
+    .heading-line > ::before{
+        width: 2000px;
+    }
+
+    form{
+        overflow: hidden;
+
+        .heading-line{
+            color: $primary-color;
+            opacity: 0.6;
+
+            > ::after,
+            > ::before{
+                border-color: $primary-color;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .user-avatar{
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+
+        img{
+            height: 100px;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="row" *ngIf="users">
+    <div class="col-lg-4 col-sm-6 mar-t-30 pad-r-10 pad-l-10" *ngFor="let user of users">
+        <div class="shadow bg-grey text-center pad-b-60">
+            <div class="background">
+                <div class="overlay"></div>
+                <img src="assets/img/user-card-background.jpg" alt="" class="w-100 img-cover">
+            </div>
+            <a [routerLink]="['/users', user.id]">
+                <div class="avatar circle mar-auto mar-b-20 loading-spinner bg-white">
+                    <div class="d-flex overlay justify-content-center align-items-center">
+                        <i class="fa fa-link"></i>
+                    </div>
+                    <img src="{{ user.avatar ? user.avatar : 'assets/img/noavatar.jpg' }}" alt="" class="w-100 img-cover">
+                </div>
+            </a>
+            <a [routerLink]="['/users', user.id]"  class="username">
+                <h4>{{ user.firstName }} {{ user.lastName ? user.lastName : '' }}</h4>
+            </a>
+            <ul class="user-contacts mar-t-40">
+                <li *ngIf="user.email">
+                    <a href="mailto:{{ user.email }}">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </li>
+                <li *ngIf="user.phone">
+                    <a href="tel:{{ user.phone }}">
+                        <i class="fa fa-phone"></i>
+                    </a>
+                </li>
+                <li *ngIf="user.website">
+                    <a href="{{ user.website }}" target="_blank">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

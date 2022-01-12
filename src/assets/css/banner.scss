@@ -1,0 +1,29 @@
+.main-banner-section{
+    width: 100%;
+    height: auto;
+    background-image: url("../img/main-banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color-white;
+
+    .banner-wrapper{
+        width: 100%;
+        height: auto;
+        background-color: rgba(0,0,0, .8);
+
+        .banner-title{
+            font-weight: 700;
+            font-size: 46px;
+        }
+
+      .banner-text{
+        font-weight: 300;
+        font-size: 14px
+      }
+
+      ul li{
+        display: inline-block;
+        margin: 0 40px 30px 0;
+      }
+    }
+}

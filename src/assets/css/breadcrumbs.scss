@@ -1,0 +1,29 @@
+.breadcrumbs-section{
+
+    ul li{
+        display: inline-block;
+        font-size: 13px;
+        color: $grey-text-color;
+
+        .arrow{
+            color: $secondary-color;
+            opacity: 0.3;
+        }
+
+        a{
+            color: $secondary-color;
+            -webkit-transition: color ease-in-out 0.3s;
+            -o-transition: color ease-in-out 0.3s;
+            transition: color ease-in-out 0.3s;
+            text-decoration: none;
+
+            &:hover{
+                color: $secondary-color-darker;
+            }
+        }
+
+        .arrow{
+            font-size: 10px;
+        }
+    }
+}

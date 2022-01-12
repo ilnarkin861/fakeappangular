@@ -1,0 +1,42 @@
+.account-section{
+
+    .user-albums-list{
+
+        min-height: 150px;
+
+        .album-cover{
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+
+            img{
+                height: 200px;
+            }
+
+            .overlay{
+                padding: 10px;
+
+                .album-title{
+                    color: $color-white;
+                    font-size: 12px;
+                    display: inline-block;
+                }
+
+                .action-buttons{
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    opacity: 0.3;
+                    -webkit-transition: all ease-in-out 0.4s;
+                    -o-transition: all ease-in-out 0.4s;
+                    transition: all ease-in-out 0.4s;
+                }
+
+                &:hover > .action-buttons{
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}

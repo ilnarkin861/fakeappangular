@@ -1,0 +1,36 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink="">
+                    <i class="fa fa-home"></i>
+                </a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Users</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="users-section mar-t-150 mar-b-150">
+    <div class="section-title">
+        <h2>All users</h2>
+    </div>
+    <div class="container">
+        <div class="users-list loading relative">
+            <div class="no-items bg-white d-flex align-items-center" *ngIf="users && users.length == 0">
+                <h6 class="text">No users</h6>
+            </div>
+            <div class="bg-white" *ngIf="users && users.length > 0">
+                <app-user-item [users]="users"></app-user-item>
+            </div>
+        </div>
+        <div class="text-center mar-t-70" *ngIf="hasNextPage">
+            <button class="btn action-button upper rounded border-orange
+                pad-t-10 pad-b-10 pad-l-30 pad-r-30" (click)="loadUsers()" [disabled]="loadButtonClicked">
+                {{ loadButtonClicked ? "Loading..." : "Load more" }}
+            </button>
+        </div>
+    </div>
+</section>

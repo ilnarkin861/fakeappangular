@@ -1,0 +1,48 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink=""><i class="fa fa-home"></i></a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/account">Account</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>
+                <a routerLink="/account/posts">Posts</a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Edit post</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="account-section mar-t-150">
+    <div class="container">
+        <div class="row shadow pad-b-100 pad-l-20 pad-r-20">
+            <div class="col-md-3 pad-t-30">
+                <app-account-menu></app-account-menu>
+            </div>
+            <div class="col-md-9 pad-t-30">
+                <h5 class="heading-line text-center mar-r-40 mar-l-40">
+                    <span>Edit post</span>
+                </h5>
+                <div class="mar-t-100">
+                    <div class="bg-white text-center" *ngIf="postNotFound">
+                        <img src="assets/img/post-not-found.svg" alt="">
+                        <h3 class="mar-t-30"><strong>Post not found</strong></h3>
+                        <a routerLink="/account/posts">
+                            <button class="btn action-button rounded border-blue bg-blue
+                            mar-t-70 pad-t-10 pad-b-10 pad-l-30 pad-r-30">
+                                <i class="fa fa-long-arrow-left"></i> Posts list
+                            </button>
+                        </a>
+                    </div>
+                    <app-post-form [post]="post" *ngIf="post"></app-post-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

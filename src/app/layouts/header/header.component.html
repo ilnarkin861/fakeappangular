@@ -1,0 +1,41 @@
+<header class="pad-t-20 pad-b-20 bg-grey text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-md-left">
+                <a routerLink="" class="logo">
+                    <span class="icon"></span>
+                    <span class="brand-text">Logo</span>
+                </a>
+            </div>
+            <div class="col-md-8 text-md-right">
+                <ul class="top-menu">
+                    <li class="cl-effect" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLink="">Home</a>
+                    </li>
+                    <li class="cl-effect" routerLinkActive="active">
+                        <a routerLink="/posts">Posts</a>
+                    </li>
+                    <li class="cl-effect" routerLinkActive="active">
+                        <a routerLink="/albums">Albums</a>
+                    </li>
+                    <li class="cl-effect" routerLinkActive="active" >
+                        <a routerLink="/users">Users</a>
+                    </li>
+                    <li class="login-link" *ngIf="!isAuthenticated">
+                        <a routerLink="/auth/login"></a>
+                    </li>
+                    <li class="user-link" *ngIf="isAuthenticated">
+                      <a routerLink="/account" class="circle" *ngIf="isAuthenticated && avatar">
+                        <img src="{{ avatar }}" alt="" class="w-100 img-cover">
+                      </a>
+                    </li>
+                    <li class="user-link" *ngIf="isAuthenticated">
+                        <a routerLink="/account" class="circle" *ngIf="isAuthenticated && !avatar">
+                            <img src="assets/img/noavatar.jpg" alt="" class="w-100 img-cover">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

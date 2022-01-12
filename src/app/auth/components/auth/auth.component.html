@@ -1,0 +1,84 @@
+<section class="breadcrumbs-section pad-t-20 pad-r-20">
+    <div class="container">
+        <ul>
+            <li>
+                <a routerLink="">
+                    <i class="fa fa-home"></i>
+                </a>
+                <i class="fa fa-long-arrow-right mar-l-10 mar-r-10 arrow"></i>
+            </li>
+            <li>Login</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="login-section mar-t-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="bg-grey pad-l-30 shadow rounded pad-r-30 pad-t-30 pad-b-50">
+                    <div class="title text-center">
+                        <h1>Welcome <strong>back</strong></h1>
+                        <span>Login to manage your account.</span>
+                    </div>
+                    <form class="sign-in-form mar-t-50" [formGroup]="loginForm.form" (ngSubmit)="logIn();">
+                        <div class="form-group mar-t-20 mar-b-30">
+                            <input type="text"
+                                   class="form-control"
+                                   [class.error]="loginForm.form.get('email')?.touched && loginForm.form.get('email')?.invalid"
+                                   formControlName="email"
+                                   placeholder="Email *">
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="error-text text-left"
+                                 *ngIf="loginForm.form.get('email')?.invalid
+                                && loginForm.form.get('email')?.touched
+                                && loginForm.form.get('email')?.hasError('required')">
+                                Email is required
+                            </div>
+                            <div class="error-text text-left"
+                                 *ngIf="loginForm.form.get('email')?.invalid
+                                  && loginForm.form.get('email')?.touched
+                                  && loginForm.form.get('email')?.hasError('pattern')">
+                                Incorrect email
+                            </div>
+                        </div>
+                        <div class="form-group mar-t-20 mar-b-30">
+                            <input type="password"
+                                   class="form-control"
+                                   [class.error]="loginForm.form.get('password')?.invalid
+                                   && loginForm.form.get('password')?.touched"
+                                   formControlName="password"
+                                   placeholder="Password *">
+                            <div class="icon">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="error-text text-left"
+                                 *ngIf="loginForm.form.get('password')?.hasError('required')
+                                 && loginForm.form.get('password')?.touched">
+                                Password is required
+                            </div>
+                        </div>
+                        <app-alert [messages]="messages" [success]="success" *ngIf="messages"></app-alert>
+                        <div class="text-center pad-t-40">
+                            <button class="btn action-button upper rounded border-blue bg-blue
+                            pad-t-10 pad-b-10 pad-l-30 pad-r-30" type="submit" [disabled]="buttonClicked">
+                                {{ buttonClicked ? "Wait..." : "Login" }}
+                            </button>
+                            <div class="mar-t-30 text">
+                                <span>Don't have an account? </span>
+                                <a routerLink="/auth/register">Register</a>
+                            </div>
+                        </div>
+                    </form>
+                    <h6 class="heading-line text-center mar-b-40 mar-t-80">
+                        <span>or</span>
+                    </h6>
+                    <app-auth-google></app-auth-google>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

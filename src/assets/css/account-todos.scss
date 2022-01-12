@@ -1,0 +1,65 @@
+.account-section{
+
+    .user-todos{
+        .todo-form{
+            position: relative;
+
+            input[type="text"]:focus{
+                border: 1px solid $primary-color-darker;
+            }
+
+            .small-action-button{
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-color: $primary-color-darker;
+                color: $color-white;
+                -webkit-transition: background-color ease-in-out 0.3s;
+                -o-transition: background-color ease-in-out 0.3s;
+                transition: background-color ease-in-out 0.3s;
+
+                &:hover{
+                    background-color: $primary-color;
+                }
+            }
+        }
+
+        .todo-filter{
+            select{
+                height: calc(2.7rem + 2px);
+                cursor: pointer;
+                color: $grey-text-color;
+                background: $color-white url("../img/up-and-down-arrows.svg") no-repeat right .75rem center;
+
+                &:focus{
+                    border: 1px solid $primary-color-darker;
+                }
+            }
+        }
+
+        .todos-list{
+            min-height: 100px;
+
+            .todo-item{
+                min-height: 110px;
+                border: 1px solid $primary-border-color;
+                -webkit-transition: background-color ease-in-out 0.3s;
+                -o-transition: background-color ease-in-out 0.3s;
+                transition: background-color ease-in-out 0.3s;
+
+                .todo-text{
+                    opacity: 0.7;
+                }
+
+                &:hover{
+                    background-color: $primary_block_bg;
+                }
+            }
+        }
+    }
+}

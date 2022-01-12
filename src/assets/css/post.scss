@@ -1,0 +1,209 @@
+.posts-section{
+
+    .posts-list{
+
+        min-height: 200px;
+
+        .post-image{
+            border-top-left-radius: $default_border_radius;
+            border-top-right-radius: $default_border_radius;
+            display: block;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+
+            img{
+                height: 200px;
+                -webkit-transition: all ease-in-out 0.5s;
+                -o-transition: all ease-in-out 0.5s;
+                transition: all ease-in-out 0.5s;
+
+                &:hover{
+                    -webkit-transform: scale(1.2, 1.2);
+                    -ms-transform: scale(1.2, 1.2);
+                    transform: scale(1.2, 1.2);
+                }
+            }
+        }
+
+        .post-details{
+            i{
+                margin-right: 2px;
+                font-size: 16px;
+                color: $primary-color-darker;
+                opacity: 0.6;
+            }
+
+            span{
+                font-size: 13px;
+                font-weight: 600;
+                color: $grey-text-color;
+            }
+
+            .post-title{
+                height: 185px;
+                overflow: hidden;
+
+                a{
+                    text-decoration: none;
+                    color: $primary-text-color;
+                    -webkit-transition: color ease-in-out 0.3s;
+                    -o-transition: color ease-in-out 0.3s;
+                    transition: color ease-in-out 0.3s;
+
+                    h5{
+                        font-weight: 600;
+                    }
+
+                    &:hover{
+                        color: $primary-color-darker;
+                    }
+                }
+            }
+
+            .post-user{
+                border-top: 1px solid $primary-border-color;
+
+                .avatar{
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 5px;
+                    overflow: hidden;
+
+                    img{
+                        height: 30px;
+                    }
+                }
+
+                .username{
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.single-post-section{
+
+    min-height: 300px;
+
+    .row{
+        padding: 20px;
+    }
+
+    .post-user{
+        .avatar{
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+
+            img{
+                height: 40px;
+            }
+        }
+
+        .username{
+            font-weight: 600;
+        }
+    }
+
+    .post-title{
+        font-size: 28px;
+        font-weight: 600;
+        color: $primary-color-darker;
+    }
+
+    .post-image{
+        width: 100%;
+        min-height: 400px;
+        height: auto;
+        position: relative;
+
+        img{
+            height: 400px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 20px;
+        }
+    }
+
+    .post-content{
+        .post-date{
+            font-size: 14px;
+            color: $grey-text-color;
+        }
+
+        .post-text{
+            font-size: 20px;
+        }
+    }
+
+    .comments-wrapper{
+        min-height: 300px;
+
+        .title{
+            color: $primary-color-darker;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .action-button{
+            color: $primary-color;
+
+            &:hover{
+                color: $color-white;
+            }
+        }
+
+        .comments-list{
+
+            .comment-item{
+                padding-right: 40px;
+
+                .user-avatar{
+                    width: 60px;
+                    height: 60px;
+                    overflow: hidden;
+                    border: 2px solid $primary-color-darker;
+
+                    img{
+                        height: 60px;
+                    }
+
+                    @media (max-width: 767px) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .username{
+                    color: $primary-text-color;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .comment-date{
+                    line-height: 0;
+                    color: $grey-text-color;
+                    font-size: 13px;
+                }
+
+                .comment-text{
+                    color: $primary-text-color;
+                    font-weight: 300;
+                    opacity: 0.7;
+                    font-size: 15px;
+                }
+
+                @media (max-width: 767px) {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .comment-form .action-button{
+            color: $color-white;
+        }
+    }
+}
