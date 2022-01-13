@@ -16,7 +16,9 @@ export class AuthGoogleComponent {
     constructor(private socialAuthService: SocialAuthService, private authService: AuthService) { }
 
     
-    async loginWithGoogle() {
+    async loginWithGoogle(event: any) {
+
+        event.target.disabled = true;
 
         let user = await this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
         
@@ -24,6 +26,10 @@ export class AuthGoogleComponent {
         
         if(typeof result === 'boolean') window.location.href = '/account';
         
-        else this.messages = result;
+        else {
+            this.messages = result;
+
+            event.target.disabled = false;
+        }
     }
 }
